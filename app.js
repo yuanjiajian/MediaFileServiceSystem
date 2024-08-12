@@ -8,13 +8,15 @@ const logger = require('koa-logger')
 const index = require('./routes/index')
 const users = require('./routes/users')
 const path = require('path')
-const config= require('./config')
+const config = require('./config')
+const cors = require('koa-cors')
 // error handler
 onerror(app)
 
 // middlewares
+app.use(cors())
 app.use(bodyparser({
-  enableTypes:['json', 'form', 'text']
+  enableTypes: ['json', 'form', 'text']
 }))
 app.use(json())
 app.use(logger())
