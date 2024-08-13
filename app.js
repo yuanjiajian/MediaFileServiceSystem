@@ -10,10 +10,12 @@ const users = require('./routes/users')
 const path = require('path')
 const config = require('./config')
 const cors = require('koa-cors')
+const range = require('koa-range')
 // error handler
 onerror(app)
 
 // middlewares
+app.use(range)
 app.use(cors())
 app.use(bodyparser({
   enableTypes: ['json', 'form', 'text']
